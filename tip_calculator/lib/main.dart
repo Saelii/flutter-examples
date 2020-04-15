@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(title: 'Tip Calculator', home: TipCalculator()));
+  runApp(MaterialApp(title: 'Debbie\'s Tip Calculator', home: TipCalculator()));
 }
 
 class TipCalculator extends StatelessWidget {
@@ -20,12 +20,12 @@ class TipCalculator extends StatelessWidget {
           billAmount = 0.0;
         }
       },
-      decoration: InputDecoration(labelText: "Bill amount(\$)"),
+      decoration: InputDecoration(labelText: "Debbie's Bill amount(\$)"),
     );
 
     // Create another input field
     TextField tipPercentageField = TextField(
-        decoration: InputDecoration(labelText: "Tip %", hintText: "15"),
+        decoration: InputDecoration(labelText: "Tip %", hintText: "50"),
         keyboardType: TextInputType.number,
         onChanged: (String value) {
           try {
@@ -37,7 +37,7 @@ class TipCalculator extends StatelessWidget {
 
     // Create button
     RaisedButton calculateButton = RaisedButton(
-        child: Text("Calculate"),
+        child: Text("Please Calculate"),
         onPressed: () {
           // Calculate tip and total
           double calculatedTip = billAmount * tipPercentage / 100.0;
@@ -46,7 +46,7 @@ class TipCalculator extends StatelessWidget {
           // Generate dialog
           AlertDialog dialog = AlertDialog(
               content: Text("Tip: \$$calculatedTip \n"
-                  "Total: \$$total"));
+                  "Your Total: \$$total"));
 
           // Show dialog
           showDialog(context: context, builder: (BuildContext context) => dialog);
